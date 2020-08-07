@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+    <h1>Fizz Buzz</h1>
+    <p>Start Range: </p>
+    <input id="range1"></input>
+    <p>End Range: (max=5000)</p>
+    <input id="range2"></input>
+    <button onclick="run()">Enter</button>
+    <div id="end" class="expanded">
+    </div>
+    <p>Specific Number: </p>
+    <input id="num1"></input>
+    <button onclick="run2()">Enter</button>
+    <div id="end2" class="expanded">
+    </div>
+</html>
+
+<script>
+    function run() {
+        var column = document.getElementById('end');
+        var rangelow = document.getElementById('range1').value;
+        var rangehigh = document.getElementById('range2').value;
+        column.innerHTML = ""
+        for (var i=rangelow; i<=rangehigh; i++) {
+            if (i % 3 === 0 && i % 5 === 0) {
+                column.innerHTML += " fizzbuzz ";
+            } else if (i % 3 === 0) {
+                column.innerHTML += " fizz ";
+            } else if (i % 5 === 0) {
+                column.innerHTML += " buzz ";
+            } else {
+                column.innerHTML += " " + i + " ";
+            }
+        }
+    }
+    function run2() {
+        var column2 = document.getElementById('end2');
+        var num = document.getElementById('num1').value;
+        column2.innerHTML = ""
+        if (num % 3 === 0 && num % 5 === 0) {
+            column2.innerHTML += " fizzbuzz ";
+        } else if (num % 3 === 0) {
+            column2.innerHTML += " fizz ";
+        } else if (num % 5 === 0) {
+            column2.innerHTML += " buzz ";
+        } else {
+            column2.innerHTML += " " + num + " ";
+            }
+    }
+</script>
+
+<style>
+    @import url(https://fonts.googleapis.com/css?family=Roboto:300,400);
+    .scss div:nth-of-type(3n), .scss div:nth-of-type(5n) {
+    font-size: 0;
+    }
+    .scss div:nth-of-type(3n):before {
+    font-size: 14px;
+    content: "fizz";
+    }
+    .scss div:nth-of-type(5n):after {
+    font-size: 14px;
+    content: "buzz";
+    }
+
+    html, body {
+    height: 100%;
+    }
+
+    body {
+    background: #C0392B;
+    color: #ECF0F1;
+    font-family: 'Roboto', sans-serif;
+    }
+
+    h1 {
+    font-size: 1em;
+    font-weight: 300;
+    text-align: center;
+    text-transform: uppercase;
+    border-bottom: 1px solid currentColor;
+    padding-bottom: .5em;
+    }
+
+    .column {
+    display: inline-block;
+    margin: 0 .5em;
+    width: 30%;
+    text-align: center;
+    text-transform: uppercase;
+    }
+    .column h2 {
+    font-size: 1em;
+    font-weight: 300;
+    border-bottom: 1px solid currentColor;
+    padding-bottom: .5em;
+    }
+    .column div {
+    font-size: 14px;
+    }
+
+    .expanded {
+        overflow: auto;
+    }
+
+</style>
